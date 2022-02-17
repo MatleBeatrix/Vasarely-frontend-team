@@ -8,7 +8,7 @@ import Registration from './components/Registration';
 
 function App() {
   let [pageNumber, setPageNumber] = useState(1);
-  let [totalPages, setTotalPages] = useState(0)
+  let [totalPages, setTotalPages] = useState(1)
   let [pageData, setPageData] = useState([])
 
   const load = async () => {
@@ -17,15 +17,17 @@ function App() {
     setPageData(res.data.records)
     setTotalPages(res.data.info.pages)
     console.log(res)
+    console.log(res.data.info.prev)
   }
   
   useEffect(() => {
     load()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageNumber])
 
-  console.log(totalPages)
+  // console.log(totalPages)
   console.log(pageData)
-
+console.log(pageNumber)
   return (
     <div className="App">
       <Registration />
