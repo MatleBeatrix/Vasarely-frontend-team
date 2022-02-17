@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import http from 'axios';
 import { useState, useEffect } from "react";
 import { Pagination } from '@mui/material';
@@ -32,7 +32,7 @@ function App() {
       <Pagination count={totalPages} onChange={(event, value) => setPageNumber(value)}/>
       {/* <button onClick={() => { setPageNumber(pageNumber - 1); }}>Back</button>
       <button onClick={() => { setPageNumber(pageNumber + 1); }}>Next</button> */}
-      <div>{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} />)}</div>
+      <div id="pics">{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} />)}</div>
     </div>
   );
 }
