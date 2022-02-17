@@ -15,6 +15,7 @@ const Navbar = () => {
            <Nav>
             <NavLogo to="/">
 			Harvard Art Museums
+            {/* <img src='https://harvardartmuseums.org/assets/icons/fb-og-image-400x400.png'></img> */}
             </NavLogo>
             <Bars />
 
