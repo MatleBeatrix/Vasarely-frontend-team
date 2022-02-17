@@ -7,7 +7,7 @@ import 'reactjs-popup/dist/index.css';
 
 const Colors = ({pic}) => {
   if (pic.colors != null){
-    return (<div>
+    return (<div className='colors-box'>
       {pic.colors.map((c, index) => {
                   return <Popup2 trigger={<div className="colors" style={{backgroundColor: c.color}} key={index}> </div>} position="right center">
                   <div>{c.color}</div>
@@ -49,8 +49,8 @@ const PicturesCard = ({ pic }) => {
             {pic.technique === null && <p>no data</p>}
             {pic.technique !== null && <p>{pic.technique}</p>}
             <p>Colors:</p>
-          </div>
             {<Colors pic={pic} />}
+          </div>
         </>}
         handleClose={togglePopup}
       />}

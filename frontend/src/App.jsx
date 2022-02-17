@@ -1,40 +1,31 @@
-import './App.css';
-import http from 'axios';
-import { useState, useEffect } from "react";
-import { Pagination } from '@mui/material';
-import PicturesCard from './components/PicturesCard';
-import Registration from './components/Registration';
+
+
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './components/pages/home';
+import Gallery from './components/pages/gallery';
+import Login from './components/pages/login';
+import Registration from './components/pages/registration';
 
 
 function App() {
-  let [pageNumber, setPageNumber] = useState(1);
-  let [totalPages, setTotalPages] = useState(1)
-  let [pageData, setPageData] = useState([])
-
-  const load = async () => {
-    const res = await http.get(`https://api.harvardartmuseums.org/image?apikey=95ab7a44-f4f7-44df-97b4-fcaad30a3961&page=${pageNumber}`)
-
-    setPageData(res.data.records)
-    setTotalPages(res.data.info.pages)
-    console.log(res)
-    console.log(res.data.info.prev)
-  }
   
-  useEffect(() => {
-    load()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageNumber])
-
-  // console.log(totalPages)
-  console.log(pageData)
-console.log(pageNumber)
   return (
     <div className="App">
-      <Registration />
-      <Pagination count={totalPages} onChange={(event, value) => setPageNumber(value)}/>
-      {/* <button onClick={() => { setPageNumber(pageNumber - 1); }}>Back</button>
-      <button onClick={() => { setPageNumber(pageNumber + 1); }}>Next</button> */}
-      <div id="pics">{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} />)}</div>
+
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Registration />} />
+
+        </Routes>
+      </Router>
+
+      {/* <Registration /> */}
+      
     </div>
   );
 }
