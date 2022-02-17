@@ -26,6 +26,7 @@ const Registration = () => {
   }
   return (
     <div>
+      <form>
       <h1>Registration</h1>
       <label htmlFor='username'> Username </label>
       <input type="text" name={username} onChange={e => setUsername(e.target.value)} id='username' />
@@ -34,9 +35,10 @@ const Registration = () => {
       <br /><br /> 
 
       <label htmlFor='password'> Password </label>
-      <input type="password" name={password} onChange={e => setPassword(e.target.value)} id='password' />
+      <input type="password" name={password} onChange={e => setPassword(e.target.value)} id='password' autoComplete='on' />
 
       <button onClick={signup}> Sign up! </button>
+      </form>
 
       {/* temporary <br /> */}
       <br /><br />
