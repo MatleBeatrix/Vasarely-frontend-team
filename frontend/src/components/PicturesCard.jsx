@@ -1,14 +1,19 @@
 import React from 'react'
 import { useState } from "react";
 import Popup from './Popup';
+import Popup2 from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 
-const Colors = ({ pic }) => {
-  if (pic.colors != null) {
+const Colors = ({pic}) => {
+  if (pic.colors != null){
     return (<div>
       {pic.colors.map((c, index) => {
-        return <div style={{ backgroundColor: c.color }} key={index}>{c.color}</div>;
-      })}
+                  return <Popup2 trigger={<div className="colors" style={{backgroundColor: c.color}} key={index}> </div>} position="right center">
+                  <div>{c.color}</div>
+
+                </Popup2>
+    })}
     </div>)
 
   }
@@ -44,8 +49,8 @@ const PicturesCard = ({ pic }) => {
             {pic.technique === null && <p>no data</p>}
             {pic.technique !== null && <p>{pic.technique}</p>}
             <p>Colors:</p>
-            {<Colors pic={pic} />}
           </div>
+            {<Colors pic={pic} />}
         </>}
         handleClose={togglePopup}
       />}
