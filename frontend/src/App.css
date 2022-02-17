@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+
+#pics {
+  display: inline-flex;
+  column-gap: 8vw;
+  row-gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+img {
+  width: 440px;
+  height: 580px;
+}
+
+p {
+  max-width: 440px;
+}
