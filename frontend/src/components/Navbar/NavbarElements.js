@@ -9,8 +9,9 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.2rem calc((100vw - 1000px) / 2);
+  padding: 0.5vw;
   z-index: 12;
+  overflow-x: hidden;
 `;
 export const NavLogo = styled(Link)`
   cursor: pointer;
