@@ -32,10 +32,10 @@ const Gallery = () => {
   return (
 	<div>
 
-<Pagination count={totalPages} onChange={(event, value) => setPageNumber(value)} />
-      {/* <button onClick={() => { setPageNumber(pageNumber - 1); }}>Back</button>
-      <button onClick={() => { setPageNumber(pageNumber + 1); }}>Next</button> */}
-      <div id="pics">{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} />)}</div>
+    <div className='pagination'>
+    <Pagination variant="outlined" size="large" count={totalPages} onChange={(event, value) => setPageNumber(value)} />
+    </div>
+    <div id="pics">{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} />)}</div>
 
   </div>
   )

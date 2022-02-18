@@ -32,15 +32,15 @@ const Navbar = () => {
                 >
                     Gallery
                 </NavLink>
-                <NavLink 
+                {/* <NavLink 
                   to="/login" 
                   activestyle={{ color: 'black' }}
                 >
                     Login
-                </NavLink>
+                </NavLink> */}
                 
                 <NavBtn>
-                    <NavBtnLink to="/registration">Registration</NavBtnLink>                
+                    <NavBtnLink to="/registration">Login / Registration</NavBtnLink>                
                 </NavBtn>
             </NavMenu> 
            </Nav> 
