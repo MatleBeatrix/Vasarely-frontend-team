@@ -21,10 +21,19 @@ code {
   top: 0;
   left: 0;
 }
+
+.box p {
+  text-align: start;
+  font-size: larger;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
  
 .box {
   display: flex;
   flex-direction: row;
+  column-gap: 20px;
   position: relative;
   width: 70%;
   margin: 0 auto;
@@ -38,7 +47,8 @@ code {
   overflow: auto;
 }
 .box img {
-  height: 300px;
+  height: 580px;
+  width: 440px;
 }
  
 .close-icon {

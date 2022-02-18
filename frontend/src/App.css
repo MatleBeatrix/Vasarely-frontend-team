@@ -37,22 +37,17 @@
   }
 }
 
-
 #pics {
   display: inline-flex;
-  column-gap: 8vw;
-  row-gap: 50px;
   flex-wrap: wrap;
+  column-gap: 2vw;
+  row-gap: 50px;
   justify-content: center;
 }
 
-img {
+#image {
   width: 440px;
   height: 580px;
-}
-
-p {
-  max-width: 440px;
 }
 
 .colors {
