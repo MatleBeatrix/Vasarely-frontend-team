@@ -11,7 +11,8 @@ export const Nav = styled.nav`
   align-items: center;
   padding: 0.5vw;
   z-index: 12;
-  overflow-x: hidden;
+  overflow: hidden;
+
 `;
 export const NavLogo = styled(Link)`
   cursor: pointer;
@@ -19,6 +20,7 @@ export const NavLogo = styled(Link)`
   font-size: 2rem;
   text-decoration: none;
   margin-left: -325px;
+  height: fit-container;
   
 
 `;
