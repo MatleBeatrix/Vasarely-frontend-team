@@ -81,14 +81,14 @@ const Registration = () => {
       <button onClick={() => setPage('login')}>I have an account</button>
 
       {page === 'login' &&
-        <form>
+        <form onSubmit={handleLogin}>
           <h1>Login</h1>
           <label htmlFor='userName'>Username </label>
           <input type="text" name={loginUserName} onChange={e => setLoginUserName(e.target.value)} id='loginUserName' />
           <br /><br></br>
           <label>Password </label>
           <input type="password" name={loginPassword} onChange={e => setLoginPassword(e.target.value)} id='loginPassword' autoComplete='on' />
-          <button onClick={login}>Login</button>
+          <button type="button" onClick={login}>Login</button>
         </form>
       }
 
