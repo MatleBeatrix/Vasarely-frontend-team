@@ -38,10 +38,16 @@ const Gallery = () => {
       if (label==="Period") setSearchPeriod(event.target.value);
     };
 
+    const divStyle = {
+      color: 'royalblue'
+      
+    };
+
     return(
       <Box sx={{ minWidth: 120, maxWidth: 300 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+
+        <InputLabel style={divStyle} id="demo-simple-select-label">{label}</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"

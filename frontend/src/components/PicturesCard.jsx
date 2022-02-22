@@ -44,70 +44,77 @@ const PicturesCard = ({ pic }) => {
 
   return (
     <div>
-      {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
-        <input type="image" className="galleryImage" alt={pic.imageid} src={pic.primaryimageurl} onClick={togglePopup} />
-      }
-      {(pic.primaryimageurl === null) &&
-      /*<input type="image" id="image" alt={pic.imageid} src={"https://harvardartmuseums.org/collections/object/356250"} onClick={togglePopup} />*/
-        <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} onClick={togglePopup} />
-      }
-      {(pic.primaryimageurl === undefined) &&
-        <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} onClick={togglePopup} />
-      }
+      <div className='galleryImageBox'>
+        {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
+          <input type="image" className="galleryImage" alt={pic.imageid} src={pic.primaryimageurl} onClick={togglePopup} />
+        }
+        {(pic.primaryimageurl === null) &&
+        /*<input type="image" id="image" alt={pic.imageid} src={"https://harvardartmuseums.org/collections/object/356250"} onClick={togglePopup} />*/
+          <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} onClick={togglePopup} />
+        }
+        {(pic.primaryimageurl === undefined) &&
+          <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} onClick={togglePopup} />
+        }
+      </div>
       
-
+      <div className='popup'>
       {isOpen && <Popup
         content={<>
           {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
-            <img src={pic.primaryimageurl} alt={pic.imageid} />
+            <img className="popupImage" src={pic.primaryimageurl} alt={pic.imageid} />
           }
           {(pic.primaryimageurl === null || pic.primaryimageurl === undefined) &&
-            <img src={noPicture} alt={pic.imageid} />
+            <img className="popupImage" src={noPicture} alt={pic.imageid} />
           }
           <div>
             <h2>{pic.title}</h2>
 
             {(pic.people !== null && pic.people !== undefined) &&
-              <div>
-                <p>Artist:</p>
-                {pic.people.map((person, index) => <p key={index}>{person.name}</p>)}
-              </div>
-            }
-
-            {pic.description !== null &&
-              <div>
-                <p>Description:</p>
-                <p>{pic.description}</p>
+              <div className="popupDataBox">
+                <h3>Artist:</h3>
+                <div>
+                  {pic.people.map((person, index) => <p key={index}>{person.name}</p>)}
+                </div>
               </div>
             }
             {pic.century !== null &&
-              <div>
-                <p>Century:</p>
+              <div className="popupDataBox">
+                <h3>Century:</h3>
                 <p>{pic.century}</p>
               </div>
             }
             {pic.culture !== null &&
-              <div>
-                <p>Culture:</p>
+              <div className="popupDataBox">
+                <h3>Culture:</h3>
                 <p>{pic.culture}</p>
               </div>
             }
             {pic.technique !== null &&
-              <div>
-                <p>Technique:</p>
+              <div className="popupDataBox">
+                <h3>Technique:</h3>
                 <p>{pic.technique}</p>
               </div>
             }
 
             {(pic.worktypes !== null && pic.worktypes !== undefined) &&
-              <div>
-                <p>Worktypes:</p>
-                {pic.worktypes.map(type => <p key={type.worktypeid}>{type.worktype}</p>)}
+              <div className="popupDataBox">
+                <h3>Worktypes:</h3>
+                <div>
+                  {pic.worktypes.map(type => <p key={type.worktypeid}>{type.worktype}</p>)}
+                </div>
               </div>
             }
+            
+            {pic.description !== null &&
+              <div>
+                <h3>Description:</h3>
+                <p>{pic.description}</p>
+              </div>
+            }
+
             {(pic.colors !== null && pic.colors !== undefined) &&
-            <div>
-              <p>Colors:</p>
+            <div className="popupDataBox">
+              <h3>Colors:</h3>
               {<Colors pic={pic} />}
             </div>
             }
@@ -117,6 +124,7 @@ const PicturesCard = ({ pic }) => {
         </>}
         handleClose={togglePopup}
       />}
+      </div>
 
       {/* <img src={pic.baseimageurl} alt={pic.imageid}/> */}
       {/* <p>{pic.date}</p> */}
