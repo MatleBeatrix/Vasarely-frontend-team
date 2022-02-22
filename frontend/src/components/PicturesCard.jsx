@@ -3,16 +3,21 @@ import { useState } from "react";
 import Popup from './Popup';
 import Popup2 from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import noPicture from '../components/nopic.jpg'
 
 
 const Colors = ({pic}) => {
   if (pic.colors != null){
     return (<div className='colors-box'>
       {pic.colors.map((c, index) => {
-                  return <Popup2 trigger={<div className="colors" style={{backgroundColor: c.color}} key={index}> </div>} position="right center">
-                  <div>{c.color}</div>
+                  return (
+                  <div key={index}>
+                    <Popup2 trigger={<div className="colors" style={{backgroundColor: c.color}}> </div>} position="right center">
+                      <div>{c.color}</div>
+                    </Popup2>
 
-                </Popup2>
+                  </div>
+                )
     })}
     </div>)
 
@@ -24,32 +29,90 @@ const Colors = ({pic}) => {
   }
 }
 
-const PicturesCard = ({ pic }) => {
 
+
+const PicturesCard = ({ pic }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
 
+  //console.log(pic)
+  //console.log(pic.people)
+  //console.log(pic.primaryimageurl)
+
   return (
     <div>
-      <input type="image" id="image" alt={pic.imageid}
-        src={pic.baseimageurl} onClick={togglePopup} />
+      {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
+        <input type="image" className="galleryImage" alt={pic.imageid} src={pic.primaryimageurl} onClick={togglePopup} />
+      }
+      {(pic.primaryimageurl === null) &&
+      /*<input type="image" id="image" alt={pic.imageid} src={"https://harvardartmuseums.org/collections/object/356250"} onClick={togglePopup} />*/
+        <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} onClick={togglePopup} />
+      }
+      {(pic.primaryimageurl === undefined) &&
+        <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} onClick={togglePopup} />
+      }
+      
 
       {isOpen && <Popup
         content={<>
-          <img src={pic.baseimageurl} alt={pic.imageid} />
+          {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
+            <img src={pic.primaryimageurl} alt={pic.imageid} />
+          }
+          {(pic.primaryimageurl === null || pic.primaryimageurl === undefined) &&
+            <img src={noPicture} alt={pic.imageid} />
+          }
           <div>
-            <p>{pic.date}</p>
-            <p>Description:</p>
-            {pic.description === null && <p>no data</p>}
-            {pic.description !== null && <p>{pic.description}</p>}
-            <p>Technique:</p>
-            {pic.technique === null && <p>no data</p>}
-            {pic.technique !== null && <p>{pic.technique}</p>}
-            <p>Colors:</p>
-            {<Colors pic={pic} />}
+            <h2>{pic.title}</h2>
+
+            {(pic.people !== null && pic.people !== undefined) &&
+              <div>
+                <p>Artist:</p>
+                {pic.people.map((person, index) => <p key={index}>{person.name}</p>)}
+              </div>
+            }
+
+            {pic.description !== null &&
+              <div>
+                <p>Description:</p>
+                <p>{pic.description}</p>
+              </div>
+            }
+            {pic.century !== null &&
+              <div>
+                <p>Century:</p>
+                <p>{pic.century}</p>
+              </div>
+            }
+            {pic.culture !== null &&
+              <div>
+                <p>Culture:</p>
+                <p>{pic.culture}</p>
+              </div>
+            }
+            {pic.technique !== null &&
+              <div>
+                <p>Technique:</p>
+                <p>{pic.technique}</p>
+              </div>
+            }
+
+            {(pic.worktypes !== null && pic.worktypes !== undefined) &&
+              <div>
+                <p>Worktypes:</p>
+                {pic.worktypes.map(type => <p key={type.worktypeid}>{type.worktype}</p>)}
+              </div>
+            }
+            {(pic.colors !== null && pic.colors !== undefined) &&
+            <div>
+              <p>Colors:</p>
+              {<Colors pic={pic} />}
+            </div>
+            }
+
+
           </div>
         </>}
         handleClose={togglePopup}
