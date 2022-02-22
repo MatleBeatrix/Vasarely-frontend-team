@@ -9,7 +9,7 @@ import {
     NavBtnLink,
 } from "./NavbarElements";
 
-const Navbar = () => {
+const Navbar = ({ page }) => {
     return (
         <>
            <Nav>
@@ -24,7 +24,7 @@ const Navbar = () => {
                   to="/" 
                   activestyle={{ color:'black' }}
                 >
-                    Home
+                    Home 
                 </NavLink>
                 <NavLink 
                   to="/gallery" 
@@ -32,12 +32,14 @@ const Navbar = () => {
                 >
                     Gallery
                 </NavLink>
-                <NavLink 
-                  to="/mycollection" 
-                  activestyle={{ color: 'black' }}
-                >
-                    My Collection
-                </NavLink>
+                {page === 'log' && 
+                    <NavLink 
+                    to="/mycollection" 
+                    activestyle={{ color: 'black' }}
+                  >
+                      My Collection
+                  </NavLink>
+                }
                 <NavBtn>
                     <NavBtnLink to="/registration">Login / Registration</NavBtnLink>                
                 </NavBtn>

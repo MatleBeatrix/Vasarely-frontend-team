@@ -12,7 +12,7 @@ const Registration = () => {
 
   const navigate = useNavigate();
 
-  console.log(page)
+
   const signup = async (event) => {
     try {
       await http.post('http://localhost:4000/api/signup', {
@@ -23,7 +23,7 @@ const Registration = () => {
       alert('yay')
       setUsername('')
       setPassword('')
-    event.preventDefault();
+
     } catch (error) {
       if (error.response.status === 400) {
         alert('missing credentials')
@@ -41,6 +41,7 @@ const Registration = () => {
         }
       });
       localStorage.setItem('sessionID', response.data)
+      handleLogin()
     }
     catch (error) {
       alert('wrong username/password!')
@@ -49,7 +50,7 @@ const Registration = () => {
   }
 
   async function handleLogin(event) {
-    event.preventDefault();
+    // event.preventDefault();
     // await submitForm(event.target);
     navigate("../mycollection");
   }
@@ -80,7 +81,7 @@ const Registration = () => {
       <button onClick={() => setPage('login')}>I have an account</button>
 
       {page === 'login' &&
-        <form onSubmit={handleLogin}>
+        <form>
           <h1>Login</h1>
           <label htmlFor='userName'>Username </label>
           <input type="text" name={loginUserName} onChange={e => setLoginUserName(e.target.value)} id='loginUserName' />
