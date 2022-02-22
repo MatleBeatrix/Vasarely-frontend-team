@@ -32,13 +32,12 @@ const Navbar = () => {
                 >
                     Gallery
                 </NavLink>
-                {/* <NavLink 
-                  to="/login" 
+                <NavLink 
+                  to="/mycollection" 
                   activestyle={{ color: 'black' }}
                 >
-                    Login
-                </NavLink> */}
-                
+                    My Collection
+                </NavLink>
                 <NavBtn>
                     <NavBtnLink to="/registration">Login / Registration</NavBtnLink>                
                 </NavBtn>
