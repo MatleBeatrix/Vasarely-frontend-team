@@ -152,7 +152,7 @@ console.log(myCollection)
         */
         }
       </div>
-      <div>
+      <div className='galleryBox'>
         <div className='pagination'>
         <Pagination variant="outlined" size="large" count={totalPages} boundaryCount={1} siblingCount={3} onChange={(event, value) => setPageNumber(value)} />
         </div>
