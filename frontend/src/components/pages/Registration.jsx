@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import http from 'axios'
 import { useNavigate } from "react-router-dom";
+import './Registration.css'
 
 
 const Registration = ({childToParentUpdate}) => {
@@ -60,7 +61,7 @@ const Registration = ({childToParentUpdate}) => {
 
 
   return (
-    <div>
+    <div id="reg">
       <button onClick={() => setPage('registration')}>Registration</button>
 
       {page === 'registration' &&
