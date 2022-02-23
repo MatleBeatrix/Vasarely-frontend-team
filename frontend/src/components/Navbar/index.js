@@ -47,7 +47,13 @@ const Navbar = ({ page }) => {
                   </NavLink>
                 }
                 <NavBtn>
-                    <NavBtnLink to="/registration">Login / Registration</NavBtnLink>                
+                    {page === 'log' &&
+                        <NavBtnLink  to="/">Log out</NavBtnLink>                
+                    
+                    }
+                    {page !== 'log' &&
+                        <NavBtnLink to="/registration">Log in / Registration</NavBtnLink>                
+                    }
                 </NavBtn>
             </NavMenu> 
            </Nav> 

@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+//import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './components/pages/Home';
 import Gallery from './components/pages/Gallery';
@@ -6,6 +6,15 @@ import MyCollection from './components/pages/MyCollection';
 import Registration from './components/pages/Registration';
 import ErrorPage from './components/pages/ErrorPage';
 import { useState,useEffect } from "react";
+import {
+  Nav,
+  NavLogo,
+  NavLink,
+  Bars,
+  NavMenu,
+  NavBtn,
+  NavBtnLink,
+} from "./components/Navbar/NavbarElements";
 
 function App() {
 
@@ -16,28 +25,58 @@ function App() {
   // const [authPassword, setAuthPassword] = useState('');
   // const [todo, setTodo] = useState('');
   const [page, setPage] = useState("reg");
+  const [update, setUpdate] = useState('');
 
-  // const login = async () => {
-  //   try {
-  //     const response = await axios.post('http://localhost:4000/api/login', {}, {
-  //       headers: {
-  //         'Authorization': authUsername + '&&&' + authPassword
-  //       }
-  //     })
-  //     /*
-  //     localStorage.setItem("user", authUsername);
-  //     localStorage.setItem("pw", authPassword);
-  //     */
-  //     localStorage.setItem("sessionID", response.data);
-  //     setPage("log");
-  //     // console.log(response.data);
-  //   }
-  //   catch (e) {
-  //     alert("wrong username/password");
-  //   }
-  // }
+  const Navbar = ({ page }) => {
 
-  const [update, setUpdate] = useState('')
+    useEffect(() => {
+      
+    }, [page])
+    
+    return (
+        <>
+           <Nav>
+            <NavLogo to="/">
+			Harvard Art Museums
+            {<img src='https://harvardartmuseums.org/assets/icons/fb-og-image-400x400.png' alt="Logo"></img>}
+            </NavLogo>
+            <Bars />
+
+            <NavMenu>
+                <NavLink 
+                  to="/" 
+                  activestyle={{ color:'black' }}
+                >
+                    Home 
+                </NavLink>
+                <NavLink 
+                  to="/gallery" 
+                  activestyle={{ color: 'black' }}
+                >
+                    Gallery
+                </NavLink>
+                {page === 'log' && 
+                    <NavLink 
+                    to="/mycollection" 
+                    activestyle={{ color: 'black' }}
+                  >
+                      My Collection
+                  </NavLink>
+                }
+                <NavBtn>
+                    {page === 'log' &&
+                        <NavBtnLink onClick={() => { localStorage.clear(); setPage('reg')}} to="/">Log out</NavBtnLink>                
+                    
+                    }
+                    {page !== 'log' &&
+                        <NavBtnLink to="/registration">Log in / Registration</NavBtnLink>                
+                    }
+                </NavBtn>
+            </NavMenu> 
+           </Nav> 
+        </>
+    );
+};
 
   useEffect(() => {
     if (localStorage.getItem("sessionID")) {

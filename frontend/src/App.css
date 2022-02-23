@@ -117,6 +117,7 @@
   max-height: 500px;
   max-width: 400px;
   margin: 0px 10px;
+  object-fit: contain;
 }
 
 .popup h2 {
@@ -146,4 +147,8 @@
 
 .des h3 {
   margin-top: 30px;
+}
+
+.galleryBox {
+  margin: 20px;
 }
