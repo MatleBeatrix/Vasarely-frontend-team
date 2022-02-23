@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
     Nav,
     NavLogo,
@@ -9,13 +9,19 @@ import {
     NavBtnLink,
 } from "./NavbarElements";
 
+
 const Navbar = ({ page }) => {
+
+    useEffect(() => {
+      
+    }, [page])
+    
     return (
         <>
            <Nav>
             <NavLogo to="/">
 			Harvard Art Museums
-            {<img src='https://harvardartmuseums.org/assets/icons/fb-og-image-400x400.png'></img>}
+            {<img src='https://harvardartmuseums.org/assets/icons/fb-og-image-400x400.png' alt="Logo"></img>}
             </NavLogo>
             <Bars />
 

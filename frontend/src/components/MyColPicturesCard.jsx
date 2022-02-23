@@ -4,8 +4,6 @@ import Popup from './Popup';
 import Popup2 from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import noPicture from '../components/nopic.jpg'
-import Button from '@mui/material/Button';
-
 
 const Colors = ({ pic }) => {
   if (pic.colors != null) {
@@ -31,8 +29,7 @@ const Colors = ({ pic }) => {
 }
 
 
-
-const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
+const MyColPicturesCard = ({ pic }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   const togglePopup = () => {
@@ -41,7 +38,7 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
 
   return (
     <div>
-      <div className='galleryImageBox' onClick={()=>{togglePopup(); setMyCollection(pic)}}>
+      <div className='galleryImageBox' onClick={()=>{togglePopup()}}>
         {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
           <input type="image" className="galleryImage" alt={pic.imageid} src={pic.primaryimageurl} />
         }
@@ -109,9 +106,7 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
                     {<Colors pic={pic} />}
                   </div>
                 }
-                  <Button variant="contained" color="success" onClick={() => {createMyCollection()}}>
-                  + Add to My Collection
-                </Button>
+                 
               </div>
               <div>
 
@@ -147,4 +142,4 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
   )
 }
 
-export default PicturesCard
+export default MyColPicturesCard

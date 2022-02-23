@@ -29,6 +29,30 @@ const Gallery = () => {
   let [searchTechnique, setSearchTechnique] = useState("");
   let [searchClassification, setSearchClassification] = useState("");
 
+  const [myCollection, setMyCollection] = useState([])
+
+  const createMyCollection = async () => {
+		try {
+		  // eslint-disable-next-line no-unused-vars
+		  const response = await http.post('http://localhost:4000/api/todo', { msg: myCollection }, {
+			headers: {
+			  'Authorization': localStorage.getItem('sessionID')
+			}
+		  });
+		//   setTodo('')
+		  alert('Added to My Collection');
+		}
+		catch (error) {
+		  if (error.response.status === 401) {
+			alert('Your session has expired')
+			// setPage('login')
+			localStorage.removeItem('sessionID')
+		  }
+		}
+	}
+
+console.log(myCollection)
+
 
   const Dropdownlist = ({list, label, value}) => {
     const handleChange = (event) => {
@@ -132,7 +156,7 @@ const Gallery = () => {
         <div className='pagination'>
         <Pagination variant="outlined" size="large" count={totalPages} boundaryCount={1} siblingCount={3} onChange={(event, value) => setPageNumber(value)} />
         </div>
-        <div id="pics">{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} />)}</div>
+        <div id="pics">{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} createMyCollection={createMyCollection} setMyCollection={data=> setMyCollection(data)} />)}</div>
         <div className='pagination'>
         <Pagination variant="outlined" size="large" count={totalPages} boundaryCount={1} siblingCount={3} onChange={(event, value) => setPageNumber(value)} />
         </div>

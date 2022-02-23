@@ -3,7 +3,8 @@ import { useState } from 'react'
 import http from 'axios'
 import { useNavigate } from "react-router-dom";
 
-const Registration = () => {
+
+const Registration = ({childToParentUpdate}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [loginUserName, setLoginUserName] = useState('')
@@ -42,6 +43,7 @@ const Registration = () => {
       });
       localStorage.setItem('sessionID', response.data)
       handleLogin()
+      
     }
     catch (error) {
       alert('wrong username/password!')
@@ -51,9 +53,11 @@ const Registration = () => {
 
   async function handleLogin(event) {
     // event.preventDefault();
-    // await submitForm(event.target);
-    navigate("../mycollection");
+    // await login(event.target);
+    navigate("../mycollection", { replace: true });
+    (() => childToParentUpdate('update'))()
   }
+
 
   return (
     <div>

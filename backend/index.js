@@ -30,7 +30,7 @@ app.post('/api/signup', (req, res) => {
 	const newUser = {
 		username: req.body.username,
 		password: req.body.password,
-		todoList: []
+		myCollectionList: []
 	}
 	
 	users.push(newUser);
@@ -55,7 +55,45 @@ app.post('/api/login', (req,res) => {
 	// 	console.log('Session end')
 	// }, 6*10*1000);
 	res.json(sessionId)
+})
 
+app.post('/api/todo', (req, res) => {
+	const sessionId = req.header('Authorization')
+	if (!sessionId) return res.sendStatus(401)
+
+	const sessionUser = sessions[sessionId];
+	if (!sessionUser) {
+		return res.sendStatus(401)
+	}
+	const username = sessionUser.username;
+	const password = sessionUser.password;
+	const user = users.find(user => username === user.username && password === user.password)
+	if (!user){
+		return res.sendStatus(401)
+	}
+	if (!req.body.msg) {
+		return res.sendStatus(400)
+	}
+
+	user.myCollectionList.push(req.body.msg)
+	fs.writeFileSync('./users.json', JSON.stringify(users));
+	return res.sendStatus(200)
+})
+
+app.get('/api/todo', (req, res) => {
+	const sessionId = req.header('Authorization')
+	if (!sessionId) return res.send('no sessionid')
+
+	const sessionUser = sessions[sessionId];
+	if (!sessionUser) {
+		return res.send('session')
+	}
+	const username = sessionUser.username;
+	const password = sessionUser.password;
+	const user = users.find(user => username === user.username && password === user.password)
+	if (!user) return res.send('no user')
+
+	return res.json(user.myCollectionList)
 })
 
 app.listen(port, () => {
