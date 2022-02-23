@@ -10,10 +10,10 @@ import {
 } from "./NavbarElements";
 
 
-const Navbar = ({ page }) => {
+const Navbar = ({ page, childToParentUpdate, setPage }) => {
 
     useEffect(() => {
-      
+
     }, [page])
     
     return (
@@ -48,7 +48,7 @@ const Navbar = ({ page }) => {
                 }
                 <NavBtn>
                     {page === 'log' &&
-                        <NavBtnLink  to="/">Log out</NavBtnLink>                
+                        <NavBtnLink onClick={() => { setPage('logout'); localStorage.clear(); childToParentUpdate('logout')}}  to="/">Log out</NavBtnLink>                
                     
                     }
                     {page !== 'log' &&

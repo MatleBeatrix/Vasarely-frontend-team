@@ -38,7 +38,7 @@ const MyCollection = () => {
 
   }, [])
 
-  console.log(myCollectionData)
+  console.log(typeof myCollectionData)
 
   return (
     <div>
@@ -47,10 +47,11 @@ const MyCollection = () => {
         <div>
           <h1>You don't have any saved photos</h1>
         </div>}
-        
-      <div
+        {console.log(myCollectionData.length)}
+      {myCollectionData !== 'session' &&
+        <div
         id="pics">{myCollectionData.map(pic => <MyColPicturesCard key={pic.id} pic={pic} />)}
-      </div>
+      </div>} 
         
 
     </div>

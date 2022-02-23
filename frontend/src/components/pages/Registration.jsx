@@ -59,6 +59,7 @@ const Registration = ({childToParentUpdate}) => {
     (() => childToParentUpdate('update'))()
   }
 
+  
 
   return (
     <div id="reg">
@@ -78,7 +79,6 @@ const Registration = ({childToParentUpdate}) => {
 
           <button onClick={signup}> Sign up! </button>
         </div>
-
       }
       {/* temporary <br /> */}
       <br /><br />
