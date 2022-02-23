@@ -65,7 +65,7 @@ function App() {
                 }
                 <NavBtn>
                     {page === 'log' &&
-                        <NavBtnLink onClick={() => { localStorage.clear(); setPage('reg')}} to="/">Log out</NavBtnLink>                
+                        <NavBtnLink onClick={() => { localStorage.clear(); setPage('reg'); window.location.reload(false);}} to="/">Log out</NavBtnLink>                
                     
                     }
                     {page !== 'log' &&
