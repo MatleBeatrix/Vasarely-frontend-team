@@ -3,14 +3,16 @@ import { useState, useEffect } from "react";
 import Popup from '../components/Popup';
 import 'reactjs-popup/dist/index.css';
 import noPicture from '../components/nopic.jpg'
+import tagPic from '../components/tag.png'
 import http from 'axios';
 import './myCollection.css'
 import MyCollectInfo from './MyCollectInfo';
+import Button from '@mui/material/Button';
 
 
 const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
+  let [collect, setCollect] = useState("info");
   const [tag, setTag] = useState("");
   
   const togglePopup = () => {
@@ -73,7 +75,7 @@ const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
 
   return (
     <div>
-      <div className='galleryImageBox' onClick={()=>{togglePopup();}}>
+      <div className='galleryImageBox' onClick={()=>{togglePopup(); setCollect("info")}}>
         {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) && <input type="image" className="galleryImage" alt={pic.imageid} src={pic.primaryimageurl} />}
         {(pic.primaryimageurl === null) && <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} />}
         {(pic.primaryimageurl === undefined) && <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} />}
@@ -82,30 +84,77 @@ const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
       <div className='popup'>
         {isOpen && <Popup
           content={<>
+              <div className="collectCard">
+                <div className='collectBase'>
+                  <div className='collectImg'>
+                            {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
+                              <img className="popupImage" src={pic.primaryimageurl} alt={pic.imageid} />
+                            }
+                            {(pic.primaryimageurl === null || pic.primaryimageurl === undefined) &&
+                              <img className="popupImage" src={noPicture} alt={pic.imageid} />
+                            }
+                  </div>
+                  <div className='collectRight'>
+                    <div className='collectData'>
+                      <div className='collectButtons'>
+                        <div>
+                          <button  className="roundButton" id="infoButton" onClick={() => setCollect("info")}></button>
+                          <button className="roundButton" id="tagButton" onClick={() => setCollect("tags")}></button>
 
-              <MyCollectInfo pic={pic}/>
+                        </div>
+                        <button id="deleteButton" onClick={() => {deleteImage(collection.picId); childToParentUpdate('update');}}></button>
+                      
+                      </div>
+                    </div>
+                    <div className='collectMore'>
+                      {collect==="info" && 
+                        <div>
+                          <MyCollectInfo pic={pic}/>
+                        </div>
+                        
+                      }
+                      {collect==="tags" && 
+                        <div className='tagsList'>
+       
+                            <div className='tagInput'>
+                              <input type="text"  placeholder="Tag name..." onChange={e => setTag(e.target.value)}/>
+                              <button type="button" onClick={() => {
+                                if (tag !== ""){
+                                  addTags(collection.picId);
+                                  childToParentUpdate('update');
 
-              <div className='tagsList'>
-              <input type="text"  onChange={e => setTag(e.target.value)}/>
-              <button type="button" onClick={() => {
-                if (tag !== ""){
-                  addTags(collection.picId);
-                  childToParentUpdate('update');
+                                }
+                              }}>+ Add tag</button>
 
-                }
-              }}>Add tag</button>
-              {collection.picTag.map((tag,index) => {
-                return (
-                <div className="tag" key={index}>
-                  <p>{tag}</p>
-                  <button onClick={() => { deleteTag(collection.picId, tag); childToParentUpdate('update');}}>X</button>
+                            </div>
+                            <div className='tagBox'>
+                              {collection.picTag.map((tag,index) => {
+                                return (
+                                <div className="tag" key={index}>
+                                  <p>{tag}</p>
+                                  <div onClick={() => { deleteTag(collection.picId, tag); childToParentUpdate('update');}}>X</div>
+
+                                </div>
+                                )
+                              })}
+                            </div>
+
+                          
+                        </div>
+                      }
                 </div>
-                )
-              })}
-            </div>
-              <button onClick={() => {deleteImage(collection.picId); childToParentUpdate('update');}}>Delete</button>
+                  </div>
+                    
+                </div>
+                
 
- 
+
+
+
+
+
+            </div>
+              
 
           </>}
           handleClose={togglePopup}

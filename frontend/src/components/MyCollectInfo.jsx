@@ -30,13 +30,8 @@ const Colors = ({ pic }) => {
 const MyCollectInfo = ({pic}) => {
 
     return <div>
-                   <div className='popupTop'>
-              {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
-                <img className="popupImage" src={pic.primaryimageurl} alt={pic.imageid} />
-              }
-              {(pic.primaryimageurl === null || pic.primaryimageurl === undefined) &&
-                <img className="popupImage" src={noPicture} alt={pic.imageid} />
-              }
+              <div className='popupTop'>
+
               <div>
                 <h2>{pic.title}</h2>
 
