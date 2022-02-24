@@ -66,19 +66,19 @@ const Registration = ({childToParentUpdate}) => {
       <button onClick={() => setPage('registration')}>Registration</button>
 
       {page === 'registration' &&
-        <div>
+        <form>
           <h1>Registration</h1>
           <label htmlFor='username'> Username </label>
           <input type="text" name={username} onChange={e => setUsername(e.target.value)} id='username' />
 
           {/* temporary <br /> */}
-          <br /><br />
+           <br /><br />
 
           <label htmlFor='password'> Password </label>
           <input type="password" name={password} onChange={e => setPassword(e.target.value)} id='password' autoComplete='on' />
-
+            <br /><br />
           <button onClick={signup}> Sign up! </button>
-        </div>
+        </form>
       }
       {/* temporary <br /> */}
       <br /><br />
@@ -93,6 +93,7 @@ const Registration = ({childToParentUpdate}) => {
           <br /><br></br>
           <label>Password </label>
           <input type="password" name={loginPassword} onChange={e => setLoginPassword(e.target.value)} id='loginPassword' autoComplete='on' />
+          <br /><br />
           <button type="button" onClick={login}>Login</button>
         </form>
       }
