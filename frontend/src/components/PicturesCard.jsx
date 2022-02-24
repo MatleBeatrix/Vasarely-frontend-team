@@ -6,6 +6,12 @@ import 'reactjs-popup/dist/index.css';
 import noPicture from '../components/nopic.jpg'
 import infoButton from '../components/info.png'
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 
 const Colors = ({ pic }) => {
@@ -31,19 +37,32 @@ const Colors = ({ pic }) => {
   }
 }
 
-
-
 const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isInfo, setIsInfo] = useState(false);
-  
+
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
 
+  //mui feedback status
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <div>
-      <div className='galleryImageBox' onClick={()=>{togglePopup(); setMyCollection(pic)}}>
+      <div className='galleryImageBox' onClick={() => { togglePopup(); setMyCollection(pic) }}>
         {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
           <input type="image" className="galleryImage" alt={pic.imageid} src={pic.primaryimageurl} />
         }
@@ -62,19 +81,27 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
 
             <div className='popupTop'>
               <div className='popupLeft'>
-                {console.log(localStorage.getItem('sessionID'))}
                 {localStorage.getItem('sessionID') &&
-                  <Button variant="contained" color="error" onClick={() => {createMyCollection()}}>
+                  <div>
+                    <Button variant="contained" color="error" onClick={() => { createMyCollection(); handleClick() }}>
                       + Add to My Collection
-                  </Button>
+                    </Button>
+
+                    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                      <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                        Added to My Collection
+                      </Alert>
+                    </Snackbar>
+
+                  </div>
                 }
 
-              {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
-                <img className="popupImage" src={pic.primaryimageurl} alt={pic.imageid} />
-              }
-              {(pic.primaryimageurl === null || pic.primaryimageurl === undefined) &&
-                <img className="popupImage" src={noPicture} alt={pic.imageid} />
-              }
+                {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
+                  <img className="popupImage" src={pic.primaryimageurl} alt={pic.imageid} />
+                }
+                {(pic.primaryimageurl === null || pic.primaryimageurl === undefined) &&
+                  <img className="popupImage" src={noPicture} alt={pic.imageid} />
+                }
 
               </div>
               <div className='popupRight'>
@@ -121,20 +148,20 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
                     {<Colors pic={pic} />}
                   </div>
                 }
-                {(pic.description !== null ) &&
-                  <div className='moreInfo' onClick={()=>setIsInfo(!isInfo)}>
-                    <input type="image"  className="buttonInfo" alt={"info"} src={infoButton} />
+                {(pic.description !== null) &&
+                  <div className='moreInfo' onClick={() => setIsInfo(!isInfo)}>
+                    <input type="image" className="buttonInfo" alt={"info"} src={infoButton} />
                     <p>More Info</p>
                   </div>
                 }
                 {isInfo &&
-                <div className='des'>
-                  <h3>Description:</h3>
-                  <hr></hr>
-                  <p>{pic.description}</p>
-                </div>
+                  <div className='des'>
+                    <h3>Description:</h3>
+                    <hr></hr>
+                    <p>{pic.description}</p>
+                  </div>
                 }
-    
+
               </div>
               <div>
 

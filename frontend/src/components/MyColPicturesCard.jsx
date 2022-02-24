@@ -59,6 +59,9 @@ const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
 			  'Authorization': localStorage.getItem('sessionID')
 			}
 		  });
+
+      
+      
 		}
 		catch (error) {
 		  if (error.response.status === 401) {
@@ -68,9 +71,6 @@ const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
 		}
 	}
 
-
-  
-  
   let pic = JSON.parse(collection.picData);
 
   return (
@@ -102,7 +102,7 @@ const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
                           <button className="roundButton" id="tagButton" onClick={() => setCollect("tags")}></button>
 
                         </div>
-                        <button id="deleteButton" onClick={() => {deleteImage(collection.picId); childToParentUpdate('update');}}></button>
+                        <button id="deleteButton" onClick={() => {deleteImage(collection.picId); childToParentUpdate('updateMyColl');}}></button>
                       
                       </div>
                     </div>
@@ -121,7 +121,7 @@ const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
                               <button type="button" onClick={() => {
                                 if (tag !== ""){
                                   addTags(collection.picId);
-                                  childToParentUpdate('update');
+                                  childToParentUpdate('addTag');
 
                                 }
                               }}>+ Add tag</button>
@@ -132,7 +132,7 @@ const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
                                 return (
                                 <div className="tag" key={index}>
                                   <p>{tag}</p>
-                                  <div onClick={() => { deleteTag(collection.picId, tag); childToParentUpdate('update');}}>X</div>
+                                  <div onClick={() => { deleteTag(collection.picId, tag); childToParentUpdate('deleteTag');}}>X</div>
 
                                 </div>
                                 )

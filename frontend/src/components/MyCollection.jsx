@@ -61,6 +61,7 @@ const MyCollection = () => {
   useEffect(() => {
     getImages();
     getTags();
+    setUpdate('')
 
   }, [update])
 

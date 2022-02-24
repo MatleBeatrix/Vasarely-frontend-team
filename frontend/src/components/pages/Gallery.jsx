@@ -2,6 +2,7 @@ import React from 'react'
 import '../../App.css';
 import http from 'axios';
 import { useState, useEffect } from "react";
+
 import { Pagination } from '@mui/material';
 import PicturesCard from '../PicturesCard';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
+
 
 
 const Gallery = () => {
@@ -32,59 +34,59 @@ const Gallery = () => {
   const [myCollection, setMyCollection] = useState([])
 
   const createMyCollection = async () => {
-		try {
-		  // eslint-disable-next-line no-unused-vars
-		  const response = await http.post('http://localhost:4000/api/todo', { 
-        msg: myCollection, 
-        picId: Math.random()}
+    try {
+      // eslint-disable-next-line no-unused-vars
+      const response = await http.post('http://localhost:4000/api/todo', {
+        msg: myCollection,
+        picId: Math.random()
+      }
         , {
-			headers: {
-			  'Authorization': localStorage.getItem('sessionID')
-			}
-		  });
-		//   setTodo('')
-		  alert('Added to My Collection');
-		}
-		catch (error) {
-		  if (error.response.status === 401) {
-			alert('Your session has expired')
-			// setPage('login')
-			localStorage.removeItem('sessionID')
-		  }
-		}
-	}
+          headers: {
+            'Authorization': localStorage.getItem('sessionID')
+          }
+        });
+      // alert('Added to My Collection!')
+    }
+    catch (error) {
+      if (error.response.status === 401) {
+        alert('Your session has expired')
+        // setPage('login')
+        localStorage.removeItem('sessionID')
+      }
+    }
+  }
 
-//console.log(myCollection)
+  //console.log(myCollection)
 
 
-  const Dropdownlist = ({list, label, value}) => {
+  const Dropdownlist = ({ list, label, value }) => {
     const handleChange = (event) => {
-      if (label==="Culture") setSearchCulture(event.target.value);
-      if (label==="Worktype") setSearchWorktype(event.target.value);
-      if (label==="Classification") setSearchClassification(event.target.value);
-      if (label==="Period") setSearchPeriod(event.target.value);
+      if (label === "Culture") setSearchCulture(event.target.value);
+      if (label === "Worktype") setSearchWorktype(event.target.value);
+      if (label === "Classification") setSearchClassification(event.target.value);
+      if (label === "Period") setSearchPeriod(event.target.value);
     };
 
     const divStyle = {
       color: 'navy'
-      
+
     };
 
-    return(
+    return (
       <Box sx={{ minWidth: 120, maxWidth: 300 }}>
-      <FormControl fullWidth>
+        <FormControl fullWidth>
 
-        <InputLabel style={divStyle} id="demo-simple-select-label">{label}</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={value}
-          label={label}
-          onChange={handleChange}
-        >
-            {list.map((data) => <MenuItem  key={data.id} value={data.id}>{data.name}</MenuItem>)}
-        </Select>
-      </FormControl>
+          <InputLabel style={divStyle} id="demo-simple-select-label">{label}</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={value}
+            label={label}
+            onChange={handleChange}
+          >
+            {list.map((data) => <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>)}
+          </Select>
+        </FormControl>
       </Box>
     )
   }
@@ -93,9 +95,9 @@ const Gallery = () => {
     try {
       const testres = await http.get(`https://api.harvardartmuseums.org/${category}?apikey=95ab7a44-f4f7-44df-97b4-fcaad30a3961`)
       const res = await http.get(`https://api.harvardartmuseums.org/${category}?size=${testres.data.info.totalrecords}&sort=name&apikey=95ab7a44-f4f7-44df-97b4-fcaad30a3961`)
-      const newArray =[];
-      
-      newArray.push({"id": "", "name": "<<ALL>>"});
+      const newArray = [];
+
+      newArray.push({ "id": "", "name": "<<ALL>>" });
       res.data.records.map(data => {
         let newSearch = {
           "id": data.id,
@@ -109,7 +111,7 @@ const Gallery = () => {
       if (category === "classification") setClassifications(newArray);
       if (category === "period") setPeriods(newArray);
     }
-    catch(error) {
+    catch (error) {
       error.alert("No data")
     }
   }
@@ -123,7 +125,7 @@ const Gallery = () => {
       setTotalPages(res.data.info.pages)
       setPageData(res.data.records)
     }
-    catch(error) {
+    catch (error) {
       error.alert("No data")
     }
   }
@@ -137,19 +139,19 @@ const Gallery = () => {
     loadSearch("worktype");
     loadSearch("classification");
     loadSearch("period");
-    
+
   }, [])
 
 
   return (
     <div>
       <div className='searchBox'>
-        <div className='listBox'><Dropdownlist list={cultures} label={"Culture"} value={searchCulture}/></div>
-        <div className='listBox'><Dropdownlist list={worktypes} label={"Worktype"} value={searchWorktype}/></div>
-        <div className='listBox'><Dropdownlist list={classifications} label={"Classification"} value={searchClassification}/></div>
-        <div className='listBox'><Dropdownlist list={periods} label={"Period"} value={searchPeriod}/></div>
-        
-        <button onClick={(e) => {setPageNumber(1); load()}} >Search</button>
+        <div className='listBox'><Dropdownlist list={cultures} label={"Culture"} value={searchCulture} /></div>
+        <div className='listBox'><Dropdownlist list={worktypes} label={"Worktype"} value={searchWorktype} /></div>
+        <div className='listBox'><Dropdownlist list={classifications} label={"Classification"} value={searchClassification} /></div>
+        <div className='listBox'><Dropdownlist list={periods} label={"Period"} value={searchPeriod} /></div>
+
+        <button onClick={(e) => { setPageNumber(1); load() }} >Search</button>
         {/*
           <button onClick={(e) => {setSearchCulture(''); setSearchWorktype(''); setSearchClassification(''); setSearchPeriod('')}} >Clear</button>
         */
@@ -157,11 +159,11 @@ const Gallery = () => {
       </div>
       <div className='galleryBox'>
         <div className='pagination'>
-        <Pagination variant="outlined" size="large" count={totalPages} boundaryCount={1} siblingCount={3} onChange={(event, value) => setPageNumber(value)} />
+          <Pagination variant="outlined" size="large" count={totalPages} boundaryCount={1} siblingCount={3} onChange={(event, value) => setPageNumber(value)} />
         </div>
-        <div id="pics">{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} createMyCollection={createMyCollection} setMyCollection={data=> setMyCollection(data)} />)}</div>
+        <div id="pics">{pageData.map(pic => <PicturesCard key={pic.id} pic={pic} createMyCollection={createMyCollection} setMyCollection={data => setMyCollection(data)} />)}</div>
         <div className='pagination'>
-        <Pagination variant="outlined" size="large" count={totalPages} boundaryCount={1} siblingCount={3} onChange={(event, value) => setPageNumber(value)} />
+          <Pagination variant="outlined" size="large" count={totalPages} boundaryCount={1} siblingCount={3} onChange={(event, value) => setPageNumber(value)} />
         </div>
       </div>
     </div>
