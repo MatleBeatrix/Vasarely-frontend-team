@@ -1,37 +1,39 @@
 #reg {
-    padding: 5%;
+  padding: 5%;
 
-    text-align: center;
-    font-size: large;
+  text-align: center;
+  font-size: large;
 }
 
-
-
 #reg button {
-    border-radius: 10px;
-    border: 1px solid #fff;
-    padding: 10px 22px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  padding: 10px 22px;
 
-    background: rgb(132,145,172);
-    color: black;
-    outline: none;
-    cursor: pointer;
-    
-    font-size: 20px;
+  background: rgb(132, 145, 172);
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  font-size: 20px;
 }
 
 #reg form {
-    width: 300px;
-    margin: auto;
-    font-size: 1.35rem;
+  width: 300px;
+  margin: auto;
+  font-size: 1.35rem;
 }
 
-#reg form input{
-    font-size: large;
-    margin-top: 5px;
+#reg form input {
+  font-size: large;
+  margin-top: 5px;
 
-    width: 95%;
-    border: 0;
-    border-bottom: 2px solid gray;
-    outline: 0;
+  width: 95%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+}
+
+.changeButton {
+  margin-top: 40px;
 }

@@ -10,7 +10,7 @@ const Registration = ({childToParentUpdate}) => {
   const [password, setPassword] = useState('')
   const [loginUserName, setLoginUserName] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
-  const [page, setPage] = useState('')
+  const [page, setPage] = useState('login')
 
   const navigate = useNavigate();
 
@@ -63,7 +63,7 @@ const Registration = ({childToParentUpdate}) => {
 
   return (
     <div id="reg">
-      <button onClick={() => setPage('registration')}>Registration</button>
+
 
       {page === 'registration' &&
         <form>
@@ -81,10 +81,6 @@ const Registration = ({childToParentUpdate}) => {
         </form>
       }
       {/* temporary <br /> */}
-      <br /><br />
-
-      <button onClick={() => setPage('login')}>I have an account</button>
-
       {page === 'login' &&
         <form onSubmit={handleLogin}>
           <h1>Login</h1>
@@ -96,6 +92,13 @@ const Registration = ({childToParentUpdate}) => {
           <br /><br />
           <button type="button" onClick={login}>Login</button>
         </form>
+      }
+            {page === 'login' &&
+            
+        <button className='changeButton' onClick={() => setPage('registration')}>Registration</button>
+      }
+      {page === 'registration' &&
+        <button className='changeButton' onClick={() => setPage('login')}>I have an account</button>
       }
 
     </div>
