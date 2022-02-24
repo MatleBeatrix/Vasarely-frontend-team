@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import Popup from '../../components/Popup';
-import Popup2 from 'reactjs-popup';
+import Popup from '../components/Popup';
 import 'reactjs-popup/dist/index.css';
-import noPicture from '../../components/nopic.jpg'
+import noPicture from '../components/nopic.jpg'
 import http from 'axios';
 import './myCollection.css'
 import MyCollectInfo from './MyCollectInfo';
@@ -11,6 +10,7 @@ import MyCollectInfo from './MyCollectInfo';
 
 const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
   const [tag, setTag] = useState("");
   
   const togglePopup = () => {
@@ -96,8 +96,8 @@ const MyColPicturesCard = ({ collection, childToParentUpdate }) => {
               }}>Add tag</button>
               {collection.picTag.map((tag,index) => {
                 return (
-                <div className="tag">
-                  <p key={index}>{tag}</p>
+                <div className="tag" key={index}>
+                  <p>{tag}</p>
                   <button onClick={() => { deleteTag(collection.picId, tag); childToParentUpdate('update');}}>X</button>
                 </div>
                 )

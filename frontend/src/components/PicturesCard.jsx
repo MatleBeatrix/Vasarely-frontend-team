@@ -4,6 +4,7 @@ import Popup from './Popup';
 import Popup2 from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import noPicture from '../components/nopic.jpg'
+import infoButton from '../components/info.png'
 import Button from '@mui/material/Button';
 
 
@@ -34,6 +35,7 @@ const Colors = ({ pic }) => {
 
 const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isInfo, setIsInfo] = useState(false);
   
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -59,13 +61,20 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
           content={<>
 
             <div className='popupTop'>
+              <div className='popupLeft'>
+              <Button variant="contained" color="error" onClick={() => {createMyCollection()}}>
+                  + Add to My Collection
+                </Button>
+
               {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
                 <img className="popupImage" src={pic.primaryimageurl} alt={pic.imageid} />
               }
               {(pic.primaryimageurl === null || pic.primaryimageurl === undefined) &&
                 <img className="popupImage" src={noPicture} alt={pic.imageid} />
               }
-              <div>
+
+              </div>
+              <div className='popupRight'>
                 <h2>{pic.title}</h2>
 
                 {(pic.people !== null && pic.people !== undefined) &&
@@ -109,9 +118,20 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
                     {<Colors pic={pic} />}
                   </div>
                 }
-                  <Button variant="contained" color="success" onClick={() => {createMyCollection()}}>
-                  + Add to My Collection
-                </Button>
+                {(pic.description !== null ) &&
+                  <div className='moreInfo' onClick={()=>setIsInfo(!isInfo)}>
+                    <input type="image"  className="buttonInfo" alt={"info"} src={infoButton} />
+                    <p>More Info</p>
+                  </div>
+                }
+                {isInfo &&
+                <div className='des'>
+                  <h3>Description:</h3>
+                  <hr></hr>
+                  <p>{pic.description}</p>
+                </div>
+                }
+    
               </div>
               <div>
 
@@ -120,13 +140,7 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
 
             </div>
 
-            {pic.description !== null &&
-              <div className='des'>
-                <h3>Description:</h3>
-                <hr></hr>
-                <p>{pic.description}</p>
-              </div>
-            }
+
           </>}
           handleClose={togglePopup}
         />}

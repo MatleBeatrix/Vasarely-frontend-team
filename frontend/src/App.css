@@ -122,12 +122,12 @@
 
 .popup h2 {
   text-align: center;
-  font-weight: bolder;
+  font-weight: 800;
   margin-bottom: 40px;
 }
 
 .popup h3 {
-  color: white;
+  color: navy;
   font-weight: bold;
   font-size: 15px;
   width: 100px;
@@ -139,10 +139,13 @@
   padding: 0;
   font-size: 15px;
   font-weight: bold;
+  text-align: justify;
 }
 
 .des {
-  margin: 10px;
+  background: white;
+
+  border-radius: 10px;
 }
 
 .des h3 {
@@ -164,4 +167,59 @@
   width: 45em;
 
   text-align: center;
+}
+
+.popupRight {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.popupLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+.moreInfo {
+  display: flex;
+  column-gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  width: 120px;
+  background-color: lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.buttonInfo {
+  height: 25px;
+}
+
+.moreInfo:hover {
+  background-color: navy;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.popupLeft button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: black;
+}
+
+.close-icon {
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  height: 30px;
+  width: 30px;
+  border: 2px black solid;
+}
+
+.close-icon:hover {
+  transform: scale(1.1);
 }

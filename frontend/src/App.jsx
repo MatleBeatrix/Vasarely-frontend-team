@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './components/pages/Home';
 import Gallery from './components/pages/Gallery';
-import MyCollection from './components/pages/MyCollection';
+import MyCollection from './components/MyCollection';
 import Registration from './components/pages/Registration';
 import ErrorPage from './components/pages/ErrorPage';
 import { useState,useEffect } from "react";

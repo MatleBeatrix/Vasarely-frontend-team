@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import noPicture from '../../components/nopic.jpg'
+import noPicture from '../components/nopic.jpg'
 import Popup2 from 'reactjs-popup';
 
 const Colors = ({ pic }) => {

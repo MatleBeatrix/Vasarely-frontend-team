@@ -59,8 +59,8 @@ code {
   content: "x";
   cursor: pointer;
   position: fixed;
-  right: 70px;
-  top: calc(100vh - 85vh - 10px);
+  right: 25px;
+  top: 60px;
   background: #ededed;
   width: 25px;
   height: 25px;
