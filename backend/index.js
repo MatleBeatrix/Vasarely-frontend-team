@@ -158,10 +158,12 @@ app.post('/api/tags', (req, res) => {
 	if (!req.body.msg) {
 		return res.sendStatus(400)
 	}
+	/*
 	const isTag = user.tags.find(tag => tag === req.body.msg)
 	if (!isTag){
 		user.tags.push(req.body.msg)
 	}
+	*/
 	
 	user.collectionList.map(data => {
 		if (data.picId === req.body.picId){
