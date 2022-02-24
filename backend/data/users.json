@@ -1,1 +1,50 @@
-[{"username":"user","password":"user","myCollectionList":[]},{"username":"user1","password":"user1","myCollectionList":[]}]
+[
+    {
+        "username": "user3",
+        "password": "user3",
+        "tags": [
+            "cool",
+            "fan",
+            "hmm",
+            "weird",
+            "lovely",
+            "vaza",
+            "agyag",
+            "szep",
+            "oreg",
+            "kedves",
+            "szines",
+            "par",
+            "regi",
+            "legyszi",
+            "hm",
+            "na",
+            "jo",
+            "o",
+            "pal",
+            "u",
+            "w"
+        ],
+        "collectionList": [
+            {
+                "picId": 0.4476291330289406,
+                "picData": "{\"copyright\":null,\"contextualtextcount\":0,\"creditline\":\"Harvard University Portrait Collection, Radcliffe Institute for Advanced Study\",\"accesslevel\":1,\"dateoflastpageview\":\"2021-10-17\",\"classificationid\":21,\"division\":\"Modern and Contemporary Art\",\"markscount\":0,\"publicationcount\":0,\"totaluniquepageviews\":66,\"contact\":\"am_moderncontemporary@harvard.edu\",\"colorcount\":10,\"rank\":204280,\"state\":null,\"id\":317321,\"verificationleveldescription\":\"Good. Object is well described and information is vetted\",\"period\":null,\"images\":[{\"date\":\"2008-12-03\",\"copyright\":null,\"imageid\":324576,\"idsid\":49471375,\"format\":\"image/jpeg\",\"description\":null,\"technique\":null,\"renditionnumber\":\"VRSH823\",\"displayorder\":1,\"baseimageurl\":\"https://nrs.harvard.edu/urn-3:huam:VRSH823_dynmc\",\"alttext\":null,\"width\":2550,\"publiccaption\":null,\"iiifbaseuri\":\"https://ids.lib.harvard.edu/ids/iiif/49471375\",\"height\":1964}],\"worktypes\":[{\"worktypeid\":\"128\",\"worktype\":\"drawing\"}],\"imagecount\":1,\"totalpageviews\":83,\"accessionyear\":2006,\"standardreferencenumber\":null,\"signed\":\"l.r.: Constance Flavell Pratt\",\"classification\":\"Drawings\",\"relatedcount\":0,\"verificationlevel\":3,\"primaryimageurl\":\"https://nrs.harvard.edu/urn-3:huam:VRSH823_dynmc\",\"titlescount\":1,\"peoplecount\":3,\"style\":null,\"lastupdate\":\"2022-02-23T05:30:05-0500\",\"commentary\":null,\"periodid\":null,\"technique\":null,\"edition\":null,\"description\":null,\"medium\":\"Gouache with pastel on paper (?)\",\"lendingpermissionlevel\":0,\"title\":\"Virginia Wellington Cabot (1900-1997) and Thomas Dudley Cabot (1897-1995)\",\"accessionmethod\":\"Unidentified\",\"colors\":[{\"color\":\"#4b3232\",\"spectrum\":\"#4ab851\",\"hue\":\"Red\",\"percent\":0.3173913043478261,\"css3\":\"#2f4f4f\"},{\"color\":\"#af7d64\",\"spectrum\":\"#c85783\",\"hue\":\"Brown\",\"percent\":0.15936231884057972,\"css3\":\"#cd5c5c\"},{\"color\":\"#7d644b\",\"spectrum\":\"#b25593\",\"hue\":\"Yellow\",\"percent\":0.08985507246376812,\"css3\":\"#696969\"},{\"color\":\"#c8967d\",\"spectrum\":\"#e66c64\",\"hue\":\"Grey\",\"percent\":0.07779710144927536,\"css3\":\"#bc8f8f\"},{\"color\":\"#e1afaf\",\"spectrum\":\"#e36769\",\"hue\":\"Red\",\"percent\":0.07107246376811595,\"css3\":\"#ffb6c1\"},{\"color\":\"#191919\",\"spectrum\":\"#1eb264\",\"hue\":\"Grey\",\"percent\":0.07014492753623189,\"css3\":\"#000000\"},{\"color\":\"#644b4b\",\"spectrum\":\"#8362aa\",\"hue\":\"Brown\",\"percent\":0.06295652173913044,\"css3\":\"#696969\"},{\"color\":\"#e19664\",\"spectrum\":\"#ef7a55\",\"hue\":\"Orange\",\"percent\":0.042202898550724635,\"css3\":\"#e9967a\"},{\"color\":\"#00647d\",\"spectrum\":\"#00929e\",\"hue\":\"Green\",\"percent\":0.03257971014492753,\"css3\":\"#008080\"},{\"color\":\"#fac896\",\"spectrum\":\"#ef7a55\",\"hue\":\"Orange\",\"percent\":0.019072463768115944,\"css3\":\"#ffdead\"}],\"provenance\":null,\"groupcount\":0,\"dated\":\"20th century\",\"department\":\"Harvard University Portrait Collection\",\"dateend\":0,\"people\":[{\"role\":\"Artist\",\"birthplace\":null,\"gender\":\"unknown\",\"displaydate\":\"born 1925\",\"prefix\":null,\"culture\":\"American\",\"displayname\":\"Constance Flavell Pratt\",\"alphasort\":\"Pratt, Constance Flavell\",\"name\":\"Constance Flavell Pratt\",\"personid\":51581,\"deathplace\":null,\"displayorder\":1},{\"role\":\"Sitter\",\"birthplace\":null,\"gender\":\"unknown\",\"displaydate\":\"1897 - 1995\",\"prefix\":null,\"culture\":null,\"displayname\":\"Thomas Dudley Cabot\",\"alphasort\":\"Cabot, Thomas Dudley\",\"name\":\"Thomas Dudley Cabot\",\"personid\":54387,\"deathplace\":null,\"displayorder\":2},{\"role\":\"Sitter\",\"birthplace\":null,\"gender\":\"unknown\",\"displaydate\":\"1900 - 1997\",\"prefix\":null,\"culture\":null,\"displayname\":\"Virginia Wellington Cabot\",\"alphasort\":\"Cabot, Virginia Wellington\",\"name\":\"Virginia Wellington Cabot\",\"personid\":54388,\"deathplace\":null,\"displayorder\":3}],\"url\":\"https://www.harvardartmuseums.org/collections/object/317321\",\"dateoffirstpageview\":\"2010-06-06\",\"century\":\"20th century\",\"objectnumber\":\"H823\",\"labeltext\":null,\"datebegin\":0,\"culture\":\"American\",\"exhibitioncount\":0,\"imagepermissionlevel\":0,\"mediacount\":0,\"objectid\":317321,\"techniqueid\":null,\"dimensions\":\"89.9 x 120.7 cm (35 3/8 x 47 1/2 in.)\\r\\nframed: 102.6 x 133.4 x 4.8 cm (40 3/8 x 52 1/2 x 1 7/8 in.)\",\"seeAlso\":[{\"id\":\"https://iiif.harvardartmuseums.org/manifests/object/317321\",\"type\":\"IIIF Manifest\",\"format\":\"application/json\",\"profile\":\"http://iiif.io/api/presentation/2/context.json\"}]}",
+                "picTag": [
+                    "szep",
+                    "oreg",
+                    "kedves",
+                    "szines"
+                ]
+            },
+            {
+                "picId": 0.14017127229461113,
+                "picData": "{\"copyright\":null,\"contextualtextcount\":0,\"creditline\":\"Harvard Art Museums/Arthur M. Sackler Museum, Partial gift of Peter W. Scheinman and partial purchase through a fund established by Ernest B. and Helen Pratt Dane for the purchase of Asian art\",\"accesslevel\":1,\"dateoflastpageview\":\"2022-01-13\",\"classificationid\":57,\"division\":\"Asian and Mediterranean Art\",\"markscount\":0,\"publicationcount\":3,\"totaluniquepageviews\":69,\"contact\":\"am_asianmediterranean@harvard.edu\",\"colorcount\":10,\"rank\":121795,\"state\":null,\"id\":167756,\"verificationleveldescription\":\"Good. Object is well described and information is vetted\",\"period\":\"Southern Song period (1127-1279) to Yuan dynasty (1279-1368)\",\"images\":[{\"date\":\"2009-07-14\",\"copyright\":null,\"imageid\":349222,\"idsid\":35280274,\"format\":\"image/jpeg\",\"description\":null,\"technique\":\"4x5 transparency\",\"renditionnumber\":\"95679\",\"displayorder\":1,\"baseimageurl\":\"https://nrs.harvard.edu/urn-3:huam:VRS95679_dynmc\",\"alttext\":null,\"width\":1024,\"publiccaption\":null,\"iiifbaseuri\":\"https://ids.lib.harvard.edu/ids/iiif/35280274\",\"height\":1335}],\"worktypes\":[{\"worktypeid\":\"403\",\"worktype\":\"vessel\"}],\"imagecount\":1,\"totalpageviews\":84,\"accessionyear\":2001,\"standardreferencenumber\":null,\"signed\":null,\"classification\":\"Vessels\",\"relatedcount\":0,\"verificationlevel\":3,\"primaryimageurl\":\"https://nrs.harvard.edu/urn-3:huam:VRS95679_dynmc\",\"titlescount\":1,\"peoplecount\":0,\"style\":null,\"lastupdate\":\"2022-02-23T05:27:11-0500\",\"commentary\":null,\"periodid\":7419,\"technique\":null,\"edition\":null,\"description\":null,\"medium\":\"Painted Jizhou ware: very light gray stoneware with clear glaze over decoration painted in iron-brown slip. From the Jizhou kilns, near Yonghe, Ji'an, Jiangxi province.\",\"lendingpermissionlevel\":0,\"title\":\"Compressed Globular Bottle with Long Neck and Decoration of Rolling Waves\",\"accessionmethod\":\"Partial Gift/Partial Purchase\",\"colors\":[{\"color\":\"#646464\",\"spectrum\":\"#7866ad\",\"hue\":\"Grey\",\"percent\":0.1817391304347826,\"css3\":\"#696969\"},{\"color\":\"#4b4b4b\",\"spectrum\":\"#3db657\",\"hue\":\"Grey\",\"percent\":0.17495652173913043,\"css3\":\"#2f4f4f\"},{\"color\":\"#7d7d7d\",\"spectrum\":\"#8362aa\",\"hue\":\"Grey\",\"percent\":0.15907246376811593,\"css3\":\"#808080\"},{\"color\":\"#969696\",\"spectrum\":\"#8761aa\",\"hue\":\"Grey\",\"percent\":0.14150724637681159,\"css3\":\"#a9a9a9\"},{\"color\":\"#afafaf\",\"spectrum\":\"#8c5fa8\",\"hue\":\"Grey\",\"percent\":0.13472463768115941,\"css3\":\"#a9a9a9\"},{\"color\":\"#c8c8c8\",\"spectrum\":\"#8c5fa8\",\"hue\":\"Grey\",\"percent\":0.07623188405797102,\"css3\":\"#c0c0c0\"},{\"color\":\"#323232\",\"spectrum\":\"#2eb45d\",\"hue\":\"Grey\",\"percent\":0.037333333333333336,\"css3\":\"#2f4f4f\"},{\"color\":\"#191919\",\"spectrum\":\"#1eb264\",\"hue\":\"Grey\",\"percent\":0.02846376811594203,\"css3\":\"#000000\"},{\"color\":\"#af967d\",\"spectrum\":\"#c25687\",\"hue\":\"Brown\",\"percent\":0.02208695652173913,\"css3\":\"#bc8f8f\"},{\"color\":\"#967d64\",\"spectrum\":\"#b65590\",\"hue\":\"Brown\",\"percent\":0.018260869565217393,\"css3\":\"#808080\"}],\"provenance\":\"Peter W. Scheinman purchased at Sotheby's, London\",\"groupcount\":0,\"dated\":\"13th-early 14th century\",\"department\":\"Department of Asian Art\",\"dateend\":1332,\"url\":\"https://www.harvardartmuseums.org/collections/object/167756\",\"dateoffirstpageview\":\"2011-06-23\",\"century\":\"13th-14th century\",\"objectnumber\":\"2001.119\",\"labeltext\":null,\"datebegin\":1200,\"culture\":\"Chinese\",\"exhibitioncount\":1,\"imagepermissionlevel\":0,\"mediacount\":0,\"objectid\":167756,\"techniqueid\":null,\"dimensions\":\"18.5 x 10.2 cm (7 5/16 x 4 in.)\",\"seeAlso\":[{\"id\":\"https://iiif.harvardartmuseums.org/manifests/object/167756\",\"type\":\"IIIF Manifest\",\"format\":\"application/json\",\"profile\":\"http://iiif.io/api/presentation/2/context.json\"}]}",
+                "picTag": [
+                    "vaza",
+                    "szep",
+                    "regi"
+                ]
+            }
+        ]
+    }
+]

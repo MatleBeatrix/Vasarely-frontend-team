@@ -26,7 +26,7 @@ const Gallery = () => {
   let [searchCentury, setSearchCentury] = useState("");
   let [searchWorktype, setSearchWorktype] = useState("");
   let [searchPeriod, setSearchPeriod] = useState("");
-  let [searchTechnique, setSearchTechnique] = useState("");
+  //let [searchTechnique, setSearchTechnique] = useState("");
   let [searchClassification, setSearchClassification] = useState("");
 
   const [myCollection, setMyCollection] = useState([])
@@ -34,7 +34,10 @@ const Gallery = () => {
   const createMyCollection = async () => {
 		try {
 		  // eslint-disable-next-line no-unused-vars
-		  const response = await http.post('http://localhost:4000/api/todo', { msg: myCollection }, {
+		  const response = await http.post('http://localhost:4000/api/todo', { 
+        msg: myCollection, 
+        picId: Math.random()}
+        , {
 			headers: {
 			  'Authorization': localStorage.getItem('sessionID')
 			}
@@ -51,7 +54,7 @@ const Gallery = () => {
 		}
 	}
 
-console.log(myCollection)
+//console.log(myCollection)
 
 
   const Dropdownlist = ({list, label, value}) => {
@@ -63,7 +66,7 @@ console.log(myCollection)
     };
 
     const divStyle = {
-      color: 'royalblue'
+      color: 'navy'
       
     };
 
