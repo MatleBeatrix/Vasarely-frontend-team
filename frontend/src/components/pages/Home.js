@@ -2,8 +2,8 @@ import React from 'react'
 
 const home = () => {
   return (
-	<div>
-    <h1>Welcome to <br></br>Harvard Art Museums</h1>
+	<div id="home">
+    <h1>Welcome to Harvard Art Museums</h1>
    <p> We’re connecting you with our work and collections in exciting new ways, equal parts entertaining and informative. Follow us on Facebook and Instagram and sign up for our newsletter to keep up with all the latest!</p>
 
   <p>And while the museums are open to visitors, our events for now continue to be offered virtually—free to everyone!</p>

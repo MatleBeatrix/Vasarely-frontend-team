@@ -152,3 +152,11 @@
 .galleryBox {
   margin: 20px;
 }
+
+#home {
+    margin-left: auto;
+    margin-right: auto;
+    width: 45em;
+    
+    text-align: center;
+}
