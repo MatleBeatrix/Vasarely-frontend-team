@@ -49,6 +49,7 @@ code {
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
+  align-items: center;
 }
 .box img {
   max-height: 580px;
