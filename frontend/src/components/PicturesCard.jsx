@@ -62,9 +62,12 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
 
             <div className='popupTop'>
               <div className='popupLeft'>
-              <Button variant="contained" color="error" onClick={() => {createMyCollection()}}>
-                  + Add to My Collection
-                </Button>
+                {console.log(localStorage.getItem('sessionID'))}
+                {localStorage.getItem('sessionID') &&
+                  <Button variant="contained" color="error" onClick={() => {createMyCollection()}}>
+                      + Add to My Collection
+                  </Button>
+                }
 
               {(pic.primaryimageurl !== null && pic.primaryimageurl !== undefined) &&
                 <img className="popupImage" src={pic.primaryimageurl} alt={pic.imageid} />
