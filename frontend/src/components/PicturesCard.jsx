@@ -67,7 +67,6 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
           <input type="image" className="galleryImage" alt={pic.imageid} src={pic.primaryimageurl} />
         }
         {(pic.primaryimageurl === null) &&
-          /*<input type="image" id="image" alt={pic.imageid} src={"https://harvardartmuseums.org/collections/object/356250"} onClick={togglePopup} />*/
           <input type="image" className="galleryImage" alt={pic.imageid} src={noPicture} />
         }
         {(pic.primaryimageurl === undefined) &&
@@ -175,18 +174,6 @@ const PicturesCard = ({ pic, createMyCollection, setMyCollection }) => {
           handleClose={togglePopup}
         />}
       </div>
-      {/* <img src={pic.baseimageurl} alt={pic.imageid}/> */}
-      {/* <p>{pic.date}</p> */}
-      {/* <p>Description:</p>
-    {pic.description === null && <p>no data</p>}
-    {pic.description !== null && <p>{pic.description}</p>}
-    <p>Technique:</p>
-    {pic.technique === null && <p>no data</p>}
-    {pic.technique !== null && <p>{pic.technique}</p>}
-    <p>Colors:</p>
-    {<Colors pic={pic}/>}
-    {/* {pic.height}
-    {pic.width} */}
     </div>
   )
 }

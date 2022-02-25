@@ -53,13 +53,9 @@ const Registration = ({childToParentUpdate}) => {
   }
 
   async function handleLogin(event) {
-    // event.preventDefault();
-    // await login(event.target);
     navigate("../mycollection", { replace: true });
     (() => childToParentUpdate('update'))()
   }
-
-  
 
   return (
     <div id="reg">
@@ -70,17 +66,14 @@ const Registration = ({childToParentUpdate}) => {
           <h1>Registration</h1>
           <label htmlFor='username'> Username </label>
           <input type="text" name={username} onChange={e => setUsername(e.target.value)} id='username' />
-
-          {/* temporary <br /> */}
            <br /><br />
-
           <label htmlFor='password'> Password </label>
           <input type="password" name={password} onChange={e => setPassword(e.target.value)} id='password' autoComplete='on' />
             <br /><br />
           <button onClick={signup}> Sign up! </button>
         </form>
       }
-      {/* temporary <br /> */}
+      
       {page === 'login' &&
         <form onSubmit={handleLogin}>
           <h1>Login</h1>

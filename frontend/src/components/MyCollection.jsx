@@ -1,10 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import 'reactjs-popup/dist/index.css';
-// import noPicture from '../../components/nopic.jpg'
 import http from 'axios';
 import MyColPicturesCard from './MyColPicturesCard';
-// import PicturesCard from '../PicturesCard';
 import { useNavigate } from "react-router-dom";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
@@ -24,19 +22,13 @@ const MyCollection = () => {
 
   const getImages = async () => {
     try {
-      //const res = await http.get(`http://localhost:4000/api/todo`,{
       const res = await http.get(`http://localhost:4000/api/todo?find=${searchWord}`, {
 
         headers: {
           'Authorization': localStorage.getItem('sessionID')
         }
       })
-      //console.log(res.data.info.pages)
-      //console.log(res);
       setMyCollectionData(res.data)
-      //console.log(res.data);
-      // setTotalPages(res.data.info.pages)
-      // setPageData(res.data.records)
     }
     catch (error) {
       // alert("No data")
@@ -74,20 +66,15 @@ const MyCollection = () => {
 
     setOpen(false);
   };
-  //
+  // mui delete dialog END
 
   useEffect(() => {
     getImages();
     getTags();
     setUpdate('')
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [update])
-
-  //console.log(typeof myCollectionData)
-  //console.log( JSON.parse(myCollectionData[0].picData).id)
-
-  //let picId = JSON.parse(myCollectionData[0].picData).id;
-
 
   return (
     <div id='coll'>

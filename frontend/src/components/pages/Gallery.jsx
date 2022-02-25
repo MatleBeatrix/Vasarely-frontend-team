@@ -28,9 +28,7 @@ const Gallery = () => {
   let [searchCentury, setSearchCentury] = useState("");
   let [searchWorktype, setSearchWorktype] = useState("");
   let [searchPeriod, setSearchPeriod] = useState("");
-  //let [searchTechnique, setSearchTechnique] = useState("");
   let [searchClassification, setSearchClassification] = useState("");
-
   const [myCollection, setMyCollection] = useState([])
 
   const createMyCollection = async () => {
@@ -45,19 +43,14 @@ const Gallery = () => {
             'Authorization': localStorage.getItem('sessionID')
           }
         });
-      // alert('Added to My Collection!')
     }
     catch (error) {
       if (error.response.status === 401) {
         alert('Your session has expired')
-        // setPage('login')
         localStorage.removeItem('sessionID')
       }
     }
   }
-
-  //console.log(myCollection)
-
 
   const Dropdownlist = ({ list, label, value }) => {
     const handleChange = (event) => {
@@ -119,9 +112,6 @@ const Gallery = () => {
   const load = async () => {
     try {
       const res = await http.get(`https://api.harvardartmuseums.org/object?size=24&sortorder=desc&sort=primaryimageurl&culture=${searchCulture}&century=${searchCentury}&worktype=${searchWorktype}&period=${searchPeriod}&classification=${searchClassification}&apikey=95ab7a44-f4f7-44df-97b4-fcaad30a3961&page=${pageNumber}`)
-      //console.log(res.data.info.pages)
-      //console.log(res);
-      //console.log(res.data);
       setTotalPages(res.data.info.pages)
       setPageData(res.data.records)
     }
@@ -152,10 +142,6 @@ const Gallery = () => {
         <div className='listBox'><Dropdownlist list={periods} label={"Period"} value={searchPeriod} /></div>
 
         <button onClick={(e) => { setPageNumber(1); load() }} >Search</button>
-        {/*
-          <button onClick={(e) => {setSearchCulture(''); setSearchWorktype(''); setSearchClassification(''); setSearchPeriod('')}} >Clear</button>
-        */
-        }
       </div>
       <div className='galleryBox'>
         <div className='pagination'>
