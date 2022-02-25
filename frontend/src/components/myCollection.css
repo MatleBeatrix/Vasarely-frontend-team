@@ -108,7 +108,8 @@
 }
 
 .tagInput button:hover {
-  background-color: navy;
+  transition: all 0.35s ease-in-out;
+  background: rgb(7, 22, 71);
   color: white;
   transform: scale(1.1);
 }
@@ -121,4 +122,43 @@
   padding: 10px;
   justify-content: center;
   width: 100%;
+}
+
+
+#coll {
+  text-align: center;
+  font-size: large;
+}
+
+#coll > div {
+  margin-bottom: 20px  ;
+}
+
+#coll > div > input {
+  font-size: large;
+  margin-top: 5px;
+
+  width: 15%;
+  border: 0;
+  border-bottom: 2px solid gray;
+  outline: 0;
+}
+
+#coll > div > button {
+  border-radius: 10px;
+  border: 1px solid #fff;
+  padding: 10px 22px;
+
+  background: rgb(132, 145, 172);
+  color: black;
+  outline: none;
+  cursor: pointer;
+
+  font-size: 20px;
+}
+
+#coll > div > button:hover {
+  transition: all 0.35s ease-in-out;
+  background: rgb(7, 22, 71);
+  color: white;
 }
