@@ -234,8 +234,5 @@
 }
 
 .searchButton:hover {
-  background-color: rgba(132, 145, 172, 1);
-  color: white;
   transform: scale(1.05);
-  border: 0;
 }
