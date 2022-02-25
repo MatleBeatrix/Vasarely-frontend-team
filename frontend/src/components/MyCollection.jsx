@@ -72,11 +72,11 @@ const MyCollection = () => {
 
 
   return (
-    <div>
+    <div id='coll'>
       <h1>My Collection</h1>
       <div>
         <h2>Tags:</h2>
-        <input type="text"  onChange={e => setSearchWord(e.target.value)}/>
+        <input type="text"  onChange={e => setSearchWord(e.target.value)}/> <br /><br />
         <button type="button" onClick={getImages}>Search</button>
 
       </div>

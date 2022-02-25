@@ -18,6 +18,12 @@
   font-size: 20px;
 }
 
+#reg button:hover {
+  transition: all 0.35s ease-in-out;
+  background: rgb(7, 22, 71);
+  color: white;
+}
+
 #reg form {
   width: 300px;
   margin: auto;
@@ -36,4 +42,9 @@
 
 .changeButton {
   margin-top: 40px;
+}
+
+.changeButton:hover {
+  transition: all 0.35s ease-in-out;
+  background: rgb(7, 22, 71);
 }
