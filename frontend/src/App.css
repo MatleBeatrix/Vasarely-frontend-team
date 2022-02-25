@@ -146,6 +146,7 @@
   background: white;
 
   border-radius: 10px;
+  max-width: 525px;
 }
 
 .des h3 {
