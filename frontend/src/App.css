@@ -200,7 +200,7 @@
 }
 
 .moreInfo:hover {
-  background-color: navy;
+  background-color: rgba(132, 145, 172, 1);
   cursor: pointer;
   transform: scale(1.1);
 }
