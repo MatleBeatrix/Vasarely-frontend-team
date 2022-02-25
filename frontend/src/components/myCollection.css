@@ -124,14 +124,13 @@
   width: 100%;
 }
 
-
 #coll {
   text-align: center;
   font-size: large;
 }
 
 #coll > div {
-  margin-bottom: 20px  ;
+  margin-bottom: 20px;
 }
 
 #coll > div > input {

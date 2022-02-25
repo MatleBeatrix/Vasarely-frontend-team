@@ -141,7 +141,7 @@ const Gallery = () => {
         <div className='listBox'><Dropdownlist list={classifications} label={"Classification"} value={searchClassification} /></div>
         <div className='listBox'><Dropdownlist list={periods} label={"Period"} value={searchPeriod} /></div>
 
-        <button onClick={(e) => { setPageNumber(1); load() }} >Search</button>
+        <button className="searchButton" onClick={(e) => { setPageNumber(1); load() }} >Search</button>
       </div>
       <div className='galleryBox'>
         <div className='pagination'>

@@ -224,3 +224,18 @@
 .close-icon:hover {
   transform: scale(1.1);
 }
+.searchButton {
+  color: navy;
+  background-color: white;
+  font-weight: 400;
+  border-radius: 5px;
+  border: 0.5px black solid;
+  text-transform: uppercase;
+}
+
+.searchButton:hover {
+  background-color: rgba(132, 145, 172, 1);
+  color: white;
+  transform: scale(1.05);
+  border: 0;
+}
